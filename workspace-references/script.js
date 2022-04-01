@@ -4,6 +4,12 @@
 // use local storage to contain your scores
 // potential secondary 'end game' page that leverages grab local storage to display results 
 
+// pattern for adding elements via selctors
+// doc.create
+// set the content
+// append it to the right parent
+
+
 var firstTag = document.querySelector("#firsttag");
 var secondTag = document.querySelector("#secondtag");
 firstTag.innerText = " ";
@@ -13,6 +19,9 @@ var disp1 = document.querySelector("#objectpropdisplay1");
 var disp2 = document.querySelector("#objectpropdisplay2");
 var specialButton = document.querySelector("#special-button");
 var startButton = document.querySelector("#start-button");
+
+surpriseText = document.createElement("h3");
+
 
 let someBooksFoods = [
     {favBook: "Bible", favFood: "Eggs"},
@@ -31,19 +40,22 @@ startButton.addEventListener("click", setTime)
 specialButton.addEventListener("click", nextBookFood);
 
 function gameOver() {
-    disp1.innerText = "THAT'S A WRAP JACK";
-    disp2.setAttribute("style","display:none;");
+    
+    surpriseText.innerText = "THAT'S A WRAP JACK";
+    document.body.appendChild(surpriseText);
 }
 
 function showBookFood() {
-    disp1.innerText = someBooksFoods[currentBookFood].favBook;
-    disp2.innerText = someBooksFoods[currentBookFood].favFood;
+    if (someBooksFoods[currentBookFood] != undefined) {
+        disp1.innerText = someBooksFoods[currentBookFood].favBook;
+        disp2.innerText = someBooksFoods[currentBookFood].favFood;
+    }
 }
 
 function nextBookFood() {
     currentBookFood++;
     showBookFood();
-    if (currentBookFood === (someBooksFoods.length)) {
+    if (currentBookFood === (someBooksFoods.length - 1)) {
         // neverending version
         // currentBookFood = 0;
         //  version with finality

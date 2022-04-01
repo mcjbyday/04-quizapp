@@ -1,0 +1,34 @@
+:root {
+    /* --theme_color: rgba(122, 3, 249, 0.8); */
+    --dark3: rgba(82, 27, 107, 0.8);
+    --light1: rgba(204, 131, 238, 0.8);
+    --theme_color: rgba(178, 58, 235, 0.8);
+    --dark2: rgba(92, 59, 107, 0.8);
+    --dark1: rgba(140, 46, 184, 0.8);
+}
+
+.header {
+
+}
+
+.highscore_container {
+
+}
+
+.timer_container {
+
+}
+
+.prompt_container {
+
+}
+
+
+.answer_container {
+
+}
+
+/* will inject */
+.answer_item {
+
+}
