@@ -12,6 +12,7 @@ var timerInSeconds = 60;
 var disp1 = document.querySelector("#objectpropdisplay1");
 var disp2 = document.querySelector("#objectpropdisplay2");
 var specialButton = document.querySelector("#special-button");
+var startButton = document.querySelector("#start-button");
 
 let someBooksFoods = [
     {favBook: "Bible", favFood: "Eggs"},
@@ -21,8 +22,11 @@ let someBooksFoods = [
 
 let currentBookFood = 0;
 
+showBookFood();
 
-setTime();
+startButton.addEventListener("click", setTime)
+
+// setTime();
 
 specialButton.addEventListener("click", nextBookFood);
 
@@ -39,12 +43,13 @@ function showBookFood() {
 function nextBookFood() {
     currentBookFood++;
     showBookFood();
-    if (currentBookFood === (someBooksFoods.length - 1)) {
+    if (currentBookFood === (someBooksFoods.length)) {
         // neverending version
         // currentBookFood = 0;
         //  version with finality
         gameOver();
-        
+        specialButton.setAttribute("style","display:none;")
+
     }
 }
 
