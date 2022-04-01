@@ -5,10 +5,18 @@
     --theme_color: rgba(178, 58, 235, 0.8);
     --dark2: rgba(92, 59, 107, 0.8);
     --dark1: rgba(140, 46, 184, 0.8);
+    --font-family-sans-serif: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    --font-family-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+}
+
+html, body {
+    font-family: var(--font-family-sans-serif);
+    /* font-family: var(--font-family-monospace); */
 }
 
 .header {
-
+    display: flex;
+    justify-content: space-between;
 }
 
 .highscore_container {
@@ -16,11 +24,23 @@
 }
 
 .timer_container {
+    color: var(--dark3);
+}
 
+.main_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .prompt_container {
-
+    font-size: 32pt;
+    font-weight:900;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -31,4 +51,20 @@
 /* will inject */
 .answer_item {
 
+}
+
+/* will inject */
+.menu_button {
+    background-color: var(--dark3);
+    border: 1px solid white;
+
+}
+
+/* will inject */
+.menu_button:hover {
+    box-shadow: inset 0px 0px 8px var(--light1);
+}
+
+.menu_button:active {
+    box-shadow: inset 0px 0px 8px var(--dark3);
 }
