@@ -11,6 +11,9 @@
 
 html, body {
     font-family: var(--font-family-sans-serif);
+    font-size: 20pt;
+    /* background-color: rgba(242, 236, 244, 0.9); */
+    background-color: rgba(210, 200, 222, 01);
     /* font-family: var(--font-family-monospace); */
 }
 
@@ -20,11 +23,12 @@ html, body {
 }
 
 .highscore_container {
-
+    padding: 0px 25px;
 }
 
 .timer_container {
     color: var(--dark3);
+    padding: 0px 25px;
 }
 
 .main_container {
@@ -32,6 +36,7 @@ html, body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    
 }
 
 .prompt_container {
@@ -40,7 +45,9 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+    /* TO DO ensure mobile experience works well at this scale */
+    min-height: 50vh;
 }
 
 
@@ -56,8 +63,8 @@ html, body {
 /* will inject */
 .menu_button {
     background-color: var(--dark3);
-    border: 1px solid white;
-
+    border: 3px solid white;
+    
 }
 
 /* will inject */

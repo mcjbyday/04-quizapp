@@ -14,7 +14,7 @@ let timerContainer = document.querySelector(".timer_container");
 let main = document.querySelector(".main_container");
 let promptContainer = document.querySelector(".prompt_container");
 let answersContainer = document.querySelector(".answer_container");
-let menuButtonStyle = "font-size: 12pt; color: white; background-color: rgba(82, 27, 107, 0.8); border-radius:5px; border: 1px solid white;"
+let menuButtonStyle = "font-size: 20pt; color: white; background-color: rgba(82, 27, 107, 0.8); border-radius:20px; border: 1px solid white; padding: 8%;"
 
 var timerInSeconds = 60;
 
