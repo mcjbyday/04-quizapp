@@ -44,53 +44,17 @@ let startButton = document.createElement("button");
 startButton.setAttribute("style",menuButtonStyle);
 startButton.className = ("menu_button");
 startButton.textContent = "Start Game";
+startButton.id = ("start_game");
 promptContainer.appendChild(startButton);
 
 // TO DO make this disappear on click, and instead display question 1?
 // on startbutton click, the timer starts currently
-// TO DO make this click call the first question
+// DONE make this click call the first question
+
+
+// start timer only
 // startButton.addEventListener("click", setTime);
-
-// snippet 
-// 
-function randomOrderPick() {
-  let randOrder = [];
-  let startOrder = [0,1,2,3];
-
-  for (i = 0; i < 4; i++) {
-    randomNumber = Math.floor(Math.random()*startOrder.length);
-    // console.log("iteration" + i + "randomnumber =\n" + randomNumber);
-    // console.log(randomNumber);
-    randOrder.push(startOrder[randomNumber]);
-    // console.log("iteration" + i + "randomOrder =\n"); 
-    // console.log(randOrder); 
-    startOrder.splice(randomNumber, 1);
-    // console.log("iteration" + i + "startOrder =\n" + startOrder); 
-    // console.log(startOrder); 
-  }
-  randOrder = randOrder.join("");
-  return randOrder;
-}
-
-
-// on click, the timer starts currently
-function displayQuestion() {
-  
-  // make a randomized order array for the available answer options
-  let ansDispSeq = randomOrderPick();
-  // get the answer array from the content file for HTML display
-  let as = [quizContent[0].options[ansDispSeq[0]], quizContent[0].options[ansDispSeq[1]], quizContent[0].options[ansDispSeq[2]], quizContent[0].options[ansDispSeq[3]]];
-  // loop through question's answer options and display them as selectable buttons
-  for (i=0; i < as.length; i++) {
-    let answerButton = document.createElement("button");
-    answerButton.setAttribute("style", answerButtonStyle);
-    answerButton.className = ("ans_button");
-    answerButton.textContent = as[i];
-    answerContainer.appendChild(answerButton);
-  }
-}
-
-
+// start timer and display question only
 startButton.addEventListener("click", function (event) {
   setTime(),
   displayQuestion();  
@@ -118,3 +82,46 @@ function setTime() {
   
     }, 100);
   }
+
+
+
+// on click, the timer starts currently
+function displayQuestion() {
+  //hide the start button on question and timer start;
+  document.querySelector('#start_game').setAttribute("style", "display: none;");
+  // set the prompt container to the question stem
+  promptContainer.innerText = quizContent[0].prompt;
+  
+  // make a randomized order array for the available answer options
+  let ansDispSeq = randomOrderPick();
+  // get the answer array from the content file for HTML display
+  let as = [quizContent[0].options[ansDispSeq[0]], quizContent[0].options[ansDispSeq[1]], quizContent[0].options[ansDispSeq[2]], quizContent[0].options[ansDispSeq[3]]];
+  // loop through question's answer options and display them as selectable buttons
+  for (i=0; i < as.length; i++) {
+    let answerButton = document.createElement("button");
+    answerButton.setAttribute("style", answerButtonStyle);
+    answerButton.className = ("ans_button");
+    answerButton.textContent = as[i];
+    answerContainer.appendChild(answerButton);
+  }
+}
+
+
+function randomOrderPick() {
+  let randOrder = [];
+  let startOrder = [0,1,2,3];
+
+  for (i = 0; i < 4; i++) {
+    randomNumber = Math.floor(Math.random()*startOrder.length);
+    // console.log("iteration" + i + "randomnumber =\n" + randomNumber);
+    // console.log(randomNumber);
+    randOrder.push(startOrder[randomNumber]);
+    // console.log("iteration" + i + "randomOrder =\n"); 
+    // console.log(randOrder); 
+    startOrder.splice(randomNumber, 1);
+    // console.log("iteration" + i + "startOrder =\n" + startOrder); 
+    // console.log(startOrder); 
+  }
+  randOrder = randOrder.join("");
+  return randOrder;
+}
