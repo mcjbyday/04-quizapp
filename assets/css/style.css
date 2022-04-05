@@ -1,10 +1,5 @@
 :root {
-    /* --theme_color: rgba(122, 3, 249, 0.8); */
-    /* --dark3: rgba(82, 27, 107, 0.8);
-    --light1: rgba(204, 131, 238, 0.8);
-    --theme_color: rgba(178, 58, 235, 0.8);
-    --dark2: rgba(92, 59, 107, 0.8);
-    --dark1: rgba(140, 46, 184, 0.8); */
+    
     --dark3: rgba(28, 44, 163, 0.8);
     --light1: rgba(253, 235, 170, 0.8);
     --theme_color: rgba(65, 85, 240, 0.8);
@@ -14,17 +9,17 @@
     --font-family-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
 }
 
-/* :root {
+/* :root { */
     /* --theme_color: rgba(122, 3, 249, 0.8); */
-    /* --dark3: rgba(28, 44, 163, 0.8);
-    --light1: rgba(94, 113, 255, 0.8);
-    --theme_color: rgba(65, 85, 240, 0.8);
-    --dark2: rgba(163, 129, 11, 0.8);
-    --dark1: rgba(240, 200, 65, 0.8);
-} */
+    /* --dark3: rgba(82, 27, 107, 0.8);
+    --light1: rgba(204, 131, 238, 0.8);
+    --theme_color: rgba(178, 58, 235, 0.8);
+    --dark2: rgba(92, 59, 107, 0.8);
+    --dark1: rgba(140, 46, 184, 0.8); */
+/*} */
 body {
     font-family: var(--font-family-sans-serif);
-    font-size: 20pt;
+    font-size: 16pt;
     /* background-color: rgba(242, 236, 244, 0.9); */
     background-color: var(--light1);
     /* font-family: var(--font-family-monospace); */
@@ -53,7 +48,6 @@ body {
     /* position: relative; */
     
 }
-
 .prompt_container {
     max-width: 80%;
 }
@@ -77,8 +71,7 @@ body {
 /* will inject */
 .menu_button {
     background-color: var(--dark3);
-    border: 3px solid white;
-    
+    border: 3px solid white;   
 }
 
 /* will inject */
