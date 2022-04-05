@@ -12,11 +12,12 @@ function displayScores() {
   // iterates through the score list
   for (var i = 0; i < scores.length; i++) {
     // declare the particular list item from the todos array
-    var score = scores[i];
+    var player = scores[i].playerName;
+    var score = scores[i].playerScore;
     // for that list item make the list item in the DOM
     var li = document.createElement("li");
     // populate it's text as array value
-    li.textContent = score;
+    li.textContent = player + ": " + score;
     // set a list item's custom data attribute to item number
     li.setAttribute("data-index", i);
     // append the created items to their parents in the DOM
