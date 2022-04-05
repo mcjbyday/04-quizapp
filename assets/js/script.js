@@ -24,9 +24,9 @@ let timerContainer = document.querySelector(".timer_container");
 let main = document.querySelector(".main_container");
 let promptContainer = document.querySelector(".prompt_container");
 let answerContainer = document.querySelector(".answer_container");
-let menuButtonStyle = "font-size: 18pt; color: white; background-color: var(--dark3); border-radius:20px; border: 1px solid white; padding: 8%;";
+let menuButtonStyle = "font-size: 18pt; color: white; background-color: var(--dark3); border-radius:20px; border: 1px solid white; padding: 1%;";
 let answerButtonStyle = "font-size: 14pt; color: white; background-color: var(--dark3); border-radius:10px; border: 1px solid white; margin: 5px; padding: 2%;";
-let viewSpacingStartPromptContainer = "font-size: 32pt;font-weight:900;display: flex;flex-direction: column;align-items: center;justify-content: space-around;min-height: 50vh;";
+let viewSpacingStartPromptContainer = "font-size: 32pt;font-weight:900;display: flex;flex-direction: column;align-items: center;min-height: 30vh;";
 let viewSpacingGameplayPromptContainer = "font-size: 32pt;font-weight:900;display: flex;flex-direction: column;align-items: center;justify-content: space-around;min-height: 15vh;";
 
 // setup prototype datastructure quiz content
@@ -51,7 +51,7 @@ promptContainer.setAttribute("style",viewSpacingStartPromptContainer);
 
 // Initialize start button in DOM and set properties
 let introContent = document.createElement("p");
-introContent.setAttribute("style", "font-size: 16pt; margin: 5px; padding: 2%;");
+introContent.setAttribute("style", "font-weight:200;font-size: 16pt; margin: 5px; padding: %;");
 introContent.id = ("intro_content");
 introContent.innerText = "Try to complete this quiz in 60 seconds. Incorrect answers will subtract 10 seconds. Good luck!";
 promptContainer.appendChild(introContent);

@@ -72,6 +72,7 @@ body {
 .menu_button {
     background-color: var(--dark3);
     border: 3px solid white;   
+    padding: 5%;
 }
 
 /* will inject */
