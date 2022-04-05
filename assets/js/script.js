@@ -3,7 +3,6 @@
 // local storage - update only at end of quiz
 // scoreboard prototype - render DOM using local storage
 // enter player name
-// write content
 
 // POLISH
 // scoreboard styling
@@ -15,6 +14,7 @@
 // create timer
 // create question objects (prompt, startwer 1, startwer 2, startwer 3, startwer 4)
 // content prototype
+// write content
 
 // hook into document's existing elements
 let header = document.querySelector(".header");
@@ -24,7 +24,7 @@ let timerContainer = document.querySelector(".timer_container");
 let main = document.querySelector(".main_container");
 let promptContainer = document.querySelector(".prompt_container");
 let answerContainer = document.querySelector(".answer_container");
-let menuButtonStyle = "font-size: 20pt; color: white; background-color: rgba(82, 27, 107, 0.8); border-radius:20px; border: 1px solid white; padding: 8%;"
+let menuButtonStyle = "font-size: 18pt; color: white; background-color: var(--dark3); border-radius:20px; border: 1px solid white; padding: 8%;"
 let answerButtonStyle = "font-size: 14pt; color: white; background-color: var(--dark3); border-radius:10px; border: 1px solid white; margin: 5px; padding: 2%;"
 let viewSpacingStartPromptContainer = "font-size: 32pt;font-weight:900;display: flex;flex-direction: column;align-items: center;justify-content: space-around;min-height: 50vh;"
 let viewSpacingGameplayPromptContainer = "font-size: 32pt;font-weight:900;display: flex;flex-direction: column;align-items: center;justify-content: space-around;min-height: 15vh;"
