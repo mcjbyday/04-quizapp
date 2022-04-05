@@ -1,7 +1,4 @@
 // TO DO
-// local storage - update only at end of quiz
-// scoreboard prototype - render DOM using local storage
-
 
 // POLISH
 // scoreboard styling
@@ -9,6 +6,8 @@
 
 
 // DONE
+// local storage - update only at end of quiz
+// scoreboard prototype - render DOM using local storage
 // enter player name
 // timer display update for loss of time
 // track scoring
@@ -22,7 +21,7 @@
 // hook into document's existing elements
 let header = document.querySelector(".header");
 let footer = document.querySelector(".footer");
-let leaderboardContainer = document.querySelector(".leaderboard_container");
+let pageswitchContainer = document.querySelector(".pageswitch_container");
 let timerContainer = document.querySelector(".timer_container");
 let main = document.querySelector(".main_container");
 let promptContainer = document.querySelector(".prompt_container");
@@ -44,12 +43,12 @@ let questionCounter = 0;
 let questionTotal = quizContent.length;
 var timerInSeconds = 60;
 var quizScore = 0;
-// get player name prototype
-let userName = prompt("Enter your name:");
 
 // get local player storage data in order to append current player score
 var playerData = JSON.parse(localStorage.getItem("playerData"));
-
+if (playerData === null) {
+  playerData = [];
+}
 // Initialize promptcontainer spacing 
 promptContainer.setAttribute("style",viewSpacingStartPromptContainer);
 
@@ -68,6 +67,10 @@ startButton.className = ("menu_button");
 startButton.textContent = "Start Game";
 startButton.id = ("start_game");
 answerContainer.appendChild(startButton);
+
+// get player name prototype
+let userName = prompt("Enter your name:");
+
 
 startButton.addEventListener("click", function (event) {
   // adjust promptcontainer spacing for gameplay 
@@ -150,9 +153,8 @@ function endGame() {
   quizScore = quizScore * timerInSeconds;
   playerData.push({playerName: userName, playerScore: quizScore});
   storeScores();
-  console.log("game over fam");
   // redirects to the scoreboard page
-  // location.href = "./leaderboard.html";
+  location.href = "./leaderboard.html";
 }
 
 function storeScores() {

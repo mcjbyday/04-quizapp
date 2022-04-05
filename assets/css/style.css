@@ -27,13 +27,13 @@ body {
 
 .header {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     text-align: center;
     height: 20vh;
 }
 
-.leaderboard_container {
+.pageswitch_container {
     font-size: 18pt; 
     border-radius: 20px; 
     /* border: 1px solid white;  */
@@ -47,7 +47,7 @@ body {
     display:flex;
 }
 
-.leaderboard_container:hover {
+.pageswitch_container:hover {
     box-shadow: 2px 2px 5px 5px var(--dark3);
     border: 1px solid white;
     background-color: var(--dark1);

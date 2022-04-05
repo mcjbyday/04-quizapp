@@ -34,6 +34,10 @@ function initializeScoreboard() {
   // if there is something, display it If not, go on with rendering.
   if (storedScores !== null) {
     scores = storedScores;
+    displayScores();
   }
-  displayScores();
+  else {
+    scoreList.innerText = "No scores have been recorded at this time.";
+  }
+  
 }
