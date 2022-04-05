@@ -25,16 +25,16 @@ let main = document.querySelector(".main_container");
 let promptContainer = document.querySelector(".prompt_container");
 let answerContainer = document.querySelector(".answer_container");
 let menuButtonStyle = "font-size: 20pt; color: white; background-color: rgba(82, 27, 107, 0.8); border-radius:20px; border: 1px solid white; padding: 8%;"
-let answerButtonStyle = "font-size: 16pt; color: white; background-color: var(--dark3); border-radius:10px; border: 1px solid white; margin: 5px; padding: 8%;"
+let answerButtonStyle = "font-size: 14pt; color: white; background-color: var(--dark3); border-radius:10px; border: 1px solid white; margin: 5px; padding: 2%;"
 let viewSpacingStartPromptContainer = "font-size: 32pt;font-weight:900;display: flex;flex-direction: column;align-items: center;justify-content: space-around;min-height: 50vh;"
 let viewSpacingGameplayPromptContainer = "font-size: 32pt;font-weight:900;display: flex;flex-direction: column;align-items: center;justify-content: space-around;min-height: 15vh;"
 
 // setup prototype datastructure quiz content
 let quizContent = [
-    {prompt: "This is the prompt of question 1", options: ["Alpha", "Bravo", "Charlie", "Correct"], correctOption: "Correct"},
-    {prompt: "This is the prompt of question 2", options: ["Delta", "Echo", "Foxtrot", "Correct"], correctOption: "Correct"},
-    {prompt: "This is the prompt of question 3", options: ["Golf", "Hotel", "India", "Correct"], correctOption: "Correct"},
-    {prompt: "This is the prompt of question 4", options: ["Juliet", "Kilo", "Lima", "Correct"], correctOption: "Correct"}
+    {prompt: "Commonly used data types DO NOT include:", options: ["strings", "booleans", "alerts", "numbers"], correctOption: "alerts"},
+    {prompt: "The condition in an if / else statement is enclosed within ____.", options: ["quotes", "curly braces", "parentheses", "square brackets"], correctOption: "parentheses"},
+    {prompt: "Arrays in JavaScript can be used to store _____.", options: ["numbers and strings", "other arrays", "booleans", "any of these"], correctOption: "any of these"},
+    {prompt: "A very useful tool used during development and debugging for printing content to the debugger is:", options: ["JavaScript", "terminal / bash", "for loops", "console.log"], correctOption: "console.log"}
   ];
 
 let questionCounter = 0;
