@@ -27,16 +27,49 @@ body {
 
 .header {
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    text-align: center;
+    height: 20vh;
 }
 
-.highscore_container {
-    padding: 0px 25px;
+.leaderboard_container {
+    font-size: 18pt; 
+    border-radius: 20px; 
+    /* border: 1px solid white;  */
+    min-width: 225px;
+    height: fit-content;
+    max-height: 50px;
+    /* color: var(--theme_color); */
+    background-color: var(--dark3);
+    text-align: center;
+    padding: 10px;
+    display:flex;
 }
+
+.leaderboard_container:hover {
+    box-shadow: 2px 2px 5px 5px var(--dark3);
+    border: 1px solid white;
+    background-color: var(--dark1);
+}
+
+a, a:hover, a:visited, a:link, a:active{
+    text-decoration: none;
+    color: white; 
+}
+
 
 .timer_container {
-    color: var(--dark3);
-    padding: 0px 25px;
+    color: var(--light1);
+    font-size: 18pt; 
+    border-radius: 20px; 
+    /* min-height: 45px; */
+    max-height: fit-content;
+    min-width: 125px;
+    background-color: var(--dark2);
+    text-align: center;
+    padding: 10px;
+
 }
 
 .main_container {
@@ -75,11 +108,12 @@ body {
     padding: 5%;
 }
 
-/* will inject */
 .menu_button:hover, .answer_item:hover {
-    box-shadow: inset 0px 0px 20px var(--light1);
+    box-shadow: 2px 2px 5px 5px var(--dark3);
+    background-color: var(--dark1);
 }
 
 .menu_button:active, .answer_item:active {
-    box-shadow: inset 0px 0px 20px var(--dark3);
+    box-shadow: 2px 2px 0px 5px var(--dark3);
+    background-color: var(--dark1);
 }

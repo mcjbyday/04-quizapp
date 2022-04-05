@@ -1,14 +1,17 @@
 // TO DO
-// track scoring
 // local storage - update only at end of quiz
 // scoreboard prototype - render DOM using local storage
-// enter player name
+
 
 // POLISH
 // scoreboard styling
-// timer display update for loss of time
+// player name via form
+
 
 // DONE
+// enter player name
+// timer display update for loss of time
+// track scoring
 // create correct selections 
 // update timer for incorrect answers
 // create timer
@@ -19,12 +22,12 @@
 // hook into document's existing elements
 let header = document.querySelector(".header");
 let footer = document.querySelector(".footer");
-let highscoreContainer = document.querySelector(".highscore_container");
+let leaderboardContainer = document.querySelector(".leaderboard_container");
 let timerContainer = document.querySelector(".timer_container");
 let main = document.querySelector(".main_container");
 let promptContainer = document.querySelector(".prompt_container");
 let answerContainer = document.querySelector(".answer_container");
-let menuButtonStyle = "font-size: 18pt; color: white; background-color: var(--dark3); border-radius:20px; border: 1px solid white; padding: 1%; min-height:100px;min-width:150px;";
+let menuButtonStyle = "font-size: 18pt; color: white; border-radius:20px; border: 1px solid white; padding: 1%; min-height:100px;min-width:150px;";
 let answerButtonStyle = "font-size: 14pt; color: white; background-color: var(--dark3); border-radius:10px; border: 1px solid white; margin: 5px; padding: 2%;";
 let viewSpacingStartPromptContainer = "font-size: 32pt;font-weight:900;display: flex;flex-direction: column;align-items: center;min-height: 15vh;";
 let viewSpacingGameplayPromptContainer = "font-size: 32pt;font-weight:900;display: flex;flex-direction: column;align-items: center;justify-content: space-around;min-height: 15vh;";
@@ -39,12 +42,13 @@ let quizContent = [
 
 let questionCounter = 0;
 let questionTotal = quizContent.length;
-console.log(questionTotal);
 var timerInSeconds = 60;
+var quizScore = 0;
+// get player name prototype
+let userName = prompt("Enter your name:");
 
-// setup local player storage data to save score from page to page
-let playerData = [
-  {playerName: "", playerScore: 0}];
+// get local player storage data in order to append current player score
+var playerData = JSON.parse(localStorage.getItem("playerData"));
 
 // Initialize promptcontainer spacing 
 promptContainer.setAttribute("style",viewSpacingStartPromptContainer);
@@ -64,7 +68,6 @@ startButton.className = ("menu_button");
 startButton.textContent = "Start Game";
 startButton.id = ("start_game");
 answerContainer.appendChild(startButton);
-
 
 startButton.addEventListener("click", function (event) {
   // adjust promptcontainer spacing for gameplay 
@@ -89,6 +92,7 @@ function setTime() {
         timerContainer.innerText = timerInSeconds;
       if(timerInSeconds <= 0) {
         // Stops execution of action at set interval
+        endGame();
         clearInterval(timerInterval);
         // Calls function to change display on page
         // resets the counter
@@ -123,41 +127,47 @@ function displayQuestion() {
 
 function inputFeedback() {
   let ans = document.querySelectorAll('.answer_item');
-  console.log("inputFeedback");
   // add event listeners to all the answer options, isDisplaying correct if they're correct, else not correct
   for (i = 0; i < ans.length; i++) {
     ans[i].addEventListener("click", function (event) {
-      console.log(event.target);
-      console.log(event.target.innerText);
       if (event.target.innerText === quizContent[questionCounter].correctOption) {
         console.log("that's correct mang");
         questionCounter++;
-        hideQuestionSetNext();
+        quizScore += 25;
+        switchNextQuestion();
       }
       else if (event.target.innerText != quizContent[questionCounter].correctOption) {
         console.log("not correct mang :(");
         timerInSeconds = timerInSeconds - 10;
         questionCounter++;
-        hideQuestionSetNext();
+        switchNextQuestion();
       }
     });
   }
 }
 
-function storeScores () {
-  // localStorage.setItem("scores", JSON.stringify(FOO)); // stringify a whole object
-
+function endGame() {
+  quizScore = quizScore * timerInSeconds;
+  playerData.push({playerName: userName, playerScore: quizScore});
+  storeScores();
+  console.log("game over fam");
+  // redirects to the scoreboard page
+  // location.href = "./leaderboard.html";
 }
 
-function hideQuestionSetNext() {
+function storeScores() {
+  // store playerData item in local storage as strings 
+  localStorage.setItem("playerData", JSON.stringify(playerData));
+}
+
+function switchNextQuestion() {
   let ans = document.querySelectorAll('.answer_item');
   ans.forEach(function(items) {
     items.remove();
   });
   if (questionCounter === questionTotal) {
-    //pseudo code for redirecting someone to a scoreboard page
-    //location.href = "./scoreboard.html"
-    console.log("game over fam");
+    endGame();
+    
   }
   else {
     displayQuestion();
