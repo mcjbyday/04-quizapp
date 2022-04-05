@@ -1,14 +1,17 @@
 // TO DO
 // track scoring
-// update timer for incorrect answers
 // local storage - update only at end of quiz
 // scoreboard prototype - render DOM using local storage
-// scoreboard styling
 // enter player name
 // write content
 
+// POLISH
+// scoreboard styling
+// timer display update for loss of time
+
 // DONE
 // create correct selections 
+// update timer for incorrect answers
 // create timer
 // create question objects (prompt, startwer 1, startwer 2, startwer 3, startwer 4)
 // content prototype
@@ -65,7 +68,7 @@ startButton.addEventListener("click", function (event) {
 function playGame() {
   // kickoff timer 
   setTime();
-  
+  // display question content
   displayQuestion();
 }
 
@@ -74,7 +77,6 @@ function setTime() {
     var timerInterval = setInterval(function() {
         timerInSeconds--;
         timerContainer.innerText = timerInSeconds;
-  
       if(timerInSeconds <= 0) {
         // Stops execution of action at set interval
         clearInterval(timerInterval);
@@ -124,14 +126,17 @@ function inputFeedback() {
       }
       else if (event.target.innerText != quizContent[questionCounter].correctOption) {
         console.log("not correct mang :(");
-        
         timerInSeconds = timerInSeconds - 10;
         questionCounter++;
         hideQuestionSetNext();
-
       }
     });
   }
+}
+
+function storeScores () {
+  // localStorage.setItem("scores", JSON.stringify(FOO)); // stringify a whole object
+
 }
 
 function hideQuestionSetNext() {
