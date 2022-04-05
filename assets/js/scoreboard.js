@@ -9,6 +9,8 @@ initializeScoreboard();
 function displayScores() {
   // makes sure the innerHTML is set to a blank string to start
   scoreList.innerText = "";
+  // sort the scores from highest score to lowest score
+  scores.sort((a,b) => b.playerScore - a.playerScore);
   // iterates through the score list
   for (var i = 0; i < scores.length; i++) {
     // declare the particular list item from the todos array
