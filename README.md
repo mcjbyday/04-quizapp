@@ -15,7 +15,7 @@ See it live:<br> [https://mcjbyday.github.io/04-quizapp/](https://mcjbyday.githu
 
     
 ## Screenshot
-![Screencapture of web application being played and a scoreboard entry being rendered alongside prior entries](./screencapture/screencapture.gif)
+![Screencapture of web application being played and a scoreboard entry being rendered alongside prior entries](./assets/screencapture/screencapture.gif)
 
 
 ## Other
