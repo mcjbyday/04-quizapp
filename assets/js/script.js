@@ -1,11 +1,11 @@
 // TO DO
 
 // POLISH
-// scoreboard styling
 // player name via form
 
 
 // DONE
+// scoreboard styling
 // local storage - update only at end of quiz
 // scoreboard prototype - render DOM using local storage
 // enter player name
@@ -39,6 +39,7 @@ let quizContent = [
     {prompt: "A very useful tool used during development and debugging for printing content to the debugger is:", options: ["JavaScript", "terminal / bash", "for loops", "console.log"], correctOption: "console.log"}
   ];
 
+timerContainer.innerText = "00";  
 let questionCounter = 0;
 let questionTotal = quizContent.length;
 var timerInSeconds = 60;
@@ -56,7 +57,7 @@ promptContainer.setAttribute("style",viewSpacingStartPromptContainer);
 let introContent = document.createElement("p");
 introContent.setAttribute("style", "font-weight:200;font-size: 16pt; margin: 5px; padding: %;");
 introContent.id = ("intro_content");
-introContent.innerText = "Try to complete this quiz in 60 seconds. Incorrect answers will subtract 10 seconds. Good luck!";
+introContent.innerHTML = "Try to complete this quiz in <b>60 seconds</b>. Incorrect answers will subtract <b>10 seconds</b>. Good luck!";
 promptContainer.appendChild(introContent);
 
 
@@ -67,10 +68,6 @@ startButton.className = ("menu_button");
 startButton.textContent = "Start Game";
 startButton.id = ("start_game");
 answerContainer.appendChild(startButton);
-
-// get player name prototype
-let userName = prompt("Enter your name:");
-
 
 startButton.addEventListener("click", function (event) {
   // adjust promptcontainer spacing for gameplay 
@@ -89,19 +86,17 @@ function playGame() {
 }
 
 function setTime() {
+  // timer starts
+  timerContainer.innerText = timerInSeconds;  
     // Sets interval in variable
     var timerInterval = setInterval(function() {
         timerInSeconds--;
         timerContainer.innerText = timerInSeconds;
       if(timerInSeconds <= 0) {
         // Stops execution of action at set interval
-        endGame();
         clearInterval(timerInterval);
         // Calls function to change display on page
-        // resets the counter
-        timerContainer.innerText = "Time's up!"; 
-        //pseudo code for redirecting someone to a scoreboard page
-        //location.href = "./scoreboard.html"
+        endGame();
       }
     }, 1000);
   }
@@ -151,10 +146,20 @@ function inputFeedback() {
 
 function endGame() {
   quizScore = quizScore * timerInSeconds;
+  
+  if (timerInSeconds > 0) {
+    // get player name prototype
+    var userName = prompt("Thanks for playing!\n\nEnter your initials:");
+  }
+  else if (timerInSeconds <= 0) {
+    // get player name prototype
+    var userName = prompt("Time's up!\n\nEnter your initials:");
+  }
+
   playerData.push({playerName: userName, playerScore: quizScore});
   storeScores();
   // redirects to the scoreboard page
-  location.href = "./leaderboard.html";
+  window.location.href = "./leaderboard.html";
 }
 
 function storeScores() {
@@ -169,7 +174,6 @@ function switchNextQuestion() {
   });
   if (questionCounter === questionTotal) {
     endGame();
-    
   }
   else {
     displayQuestion();

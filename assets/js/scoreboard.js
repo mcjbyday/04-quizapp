@@ -18,12 +18,26 @@ function displayScores() {
     var score = scores[i].playerScore;
     // for that list item make the list item in the DOM
     var li = document.createElement("li");
+    var liSpanPlayer = document.createElement("span");
+    var liSpanScore = document.createElement("span");
     // populate it's text as array value
-    li.textContent = player + ": " + score;
+    liSpanPlayer.textContent = player;
+    liSpanScore.textContent = score;
+    // li.textContent = player + ": " + score;
     // set a list item's custom data attribute to item number
-    li.setAttribute("data-index", i);
+    
+    // find of new addition
+    var index = scores.findIndex(element => {
+        if (element.playerName === scores[i].playerName && element.playerScore === scores[i].playerScore) {
+        return true;
+        }
+        return false;
+    });
+    li.setAttribute("data-index", index);
     // append the created items to their parents in the DOM
     scoreList.appendChild(li);
+    li.appendChild(liSpanPlayer);
+    li.appendChild(liSpanScore);
   }
 }
 
