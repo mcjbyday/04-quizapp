@@ -1,22 +1,5 @@
-// TO DO
-
 // POLISH
 // player name via form
-
-
-// DONE
-// scoreboard styling
-// local storage - update only at end of quiz
-// scoreboard prototype - render DOM using local storage
-// enter player name
-// timer display update for loss of time
-// track scoring
-// create correct selections 
-// update timer for incorrect answers
-// create timer
-// create question objects (prompt, startwer 1, startwer 2, startwer 3, startwer 4)
-// content prototype
-// write content
 
 // hook into document's existing elements
 let header = document.querySelector(".header");
@@ -149,11 +132,11 @@ function endGame() {
   
   if (timerInSeconds > 0) {
     // get player name prototype
-    var userName = prompt("Thanks for playing!\n\nEnter your initials:");
+    var userName = prompt("Thanks for playing!\n\nYour score was " + quizScore + "\n\nEnter your initials:");
   }
   else if (timerInSeconds <= 0) {
     // get player name prototype
-    var userName = prompt("Time's up!\n\nEnter your initials:");
+    var userName = prompt("Time's up!\n\nYour score was " + quizScore + "\n\nEnter your initials:");
   }
 
   playerData.push({playerName: userName, playerScore: quizScore});
