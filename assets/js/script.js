@@ -1,6 +1,3 @@
-// POLISH
-// player name via form
-
 // hook into document's existing elements
 let header = document.querySelector(".header");
 let footer = document.querySelector(".footer");

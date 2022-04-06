@@ -21,6 +21,14 @@ See it live:<br> [https://mcjbyday.github.io/04-quizapp/](https://mcjbyday.githu
 ## Other
 <p>No external installations are required to view this website. 
 
+
+## Roadmap
+
+- [x] Add scoreboard derived from local storage
+- [ ] Add username/initials entry form (remove browser prompt)
+- [ ] Add endgame screen with more fanfare
+
+
 ## Contact
 Comments or questions? <br>
 Author: Michael Jacobs <br>
