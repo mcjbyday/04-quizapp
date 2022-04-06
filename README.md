@@ -3,7 +3,7 @@
 as a learner I want to be measured on JavaScript fundamentals in a timed setting so that I can gauge my progress against my peers
 
 ## Description
-<p>This repository contains ...
+<p>This repository contains a quiz application that asks a series of technical questions pertaining to the JavaScript language. The application uses local storage to maintain a leaderboard among players.
 
 ## Technologies
 - HTML5
@@ -15,7 +15,8 @@ See it live:<br> [https://mcjbyday.github.io/04-quizapp/](https://mcjbyday.githu
 
     
 ## Screenshot
-![COMING SOON]()
+![Screencapture of web application being played and a scoreboard entry being rendered alongside prior entries](./screencapture/screencapture.gif)
+
 
 ## Other
 <p>No external installations are required to view this website. 
